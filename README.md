@@ -29,6 +29,28 @@ bazel build //some-borer:lib
 
 You should see the error caused by: `Worker process did not return a WorkResponse`.
 
+### Logger
+
+For example now we need to set up scala logging. And we decide to use `scala-logging` of version `3.9.2`.
+
+We [define][logger-define] and [install][logger-install] it in our `Workspace` file.
+
+### Spark
+
+For example in this case we need to use `spark` of version `3.0.2`.
+
+Let's [define][spark-define] and [install][spark-install] it in the `Workspace` file as usual. Then [use][spark-use] it in the `BUILD` file.
+
+To build this lib we use [`scala_library`] rule.
+
+But we will recieve an error, that bazel cannot find the objects and classes, that are in `org.apache.spark.sql.*`
+
+To reproduce run:
+
+```bash
+bazel build //some-spark:lib
+```
+
 ## How to build
 
 ### Build specific target
@@ -60,13 +82,22 @@ bazel build //...
 | `bazel`                | `bazel 4.0.0-homebrew`                                             |
 
 [borer-define]: https://github.com/sierikov/b1256/blob/main/WORKSPACE.bazel#L66-L67
-[borer-install]: https://github.com/sierikov/b1256/blob/main/WORKSPACE.bazel#L104-L105
+[borer-install]: https://github.com/sierikov/b1256/blob/main/WORKSPACE.bazel#L84-85
 [borer-use]: https://github.com/sierikov/b1256/blob/main/some-borer/BUILD.bazel#L14-L15
 [`deriveAllCodecs`]: https://github.com/sierikov/b1256/blob/main/some-borer/src/main/com/some/borer/Some.scala#L16
 [deriver-macro]: https://sirthias.github.io/borer/borer-derivation/faq.html#:~:text=sub-type%20is%20already%20available%20at%20the%20deriveAll...%20macro%20call%20site%20then%20this%20implicit%20will%20be%20used
 [deriver-exists]: https://github.com/sirthias/borer/tree/master/derivation/src/main/scala/io/bullet/borer/deriver
 
+[logger-define]: https://github.com/sierikov/b1256/blob/main/WORKSPACE.bazel#L69
+[logger-install]: https://github.com/sierikov/b1256/blob/main/WORKSPACE.bazel#L108
+[logger-use]: https://github.com/sierikov/b1256/blob/main/some-logger/BUILD.bazel#L14
+
+[spark-define]: https://github.com/sierikov/b1256/blob/main/WORKSPACE.bazel#L71-77
+[spark-install]: https://github.com/sierikov/b1256/blob/main/WORKSPACE.bazel#L87
+[spark-use]: https://github.com/sierikov/b1256/blob/main/some-spark/BUILD.bazel#L14
+
 [1256 bazel issue]: https://github.com/bazelbuild/rules_scala/issues/1256
 [StackOverflow question]: https://stackoverflow.com/questions/66640581/bazel-scala-failed-worker-process-did-not-return-a-workresponse
 
+[`scala_library`]: https://github.com/bazelbuild/rules_scala/blob/master/docs/scala_library.md
 [`scala_macro_library`]: https://github.com/bazelbuild/rules_scala/blob/master/docs/scala_macro_library.md

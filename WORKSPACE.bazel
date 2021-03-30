@@ -66,13 +66,8 @@ excluded_loggers = [
 borer_core = "io.bullet:borer-core_2.12:%s" % borer_version
 borer_derivation = "io.bullet:borer-derivation_2.12:%s" % borer_version
 
-spark_core = maven.artifact(
-    group = "org.apache.spark",
-    artifact = "spark-core_2.12",
-    version = spark_version,
-    exclusions = excluded_loggers,
-    neverlink = True
-)
+scala_logging = "com.typesafe.scala-logging:scala-logging_2.12:3.9.2"
+
 spark_sql = maven.artifact(
     group = "org.apache.spark",
     artifact = "spark-sql_2.12",
@@ -80,21 +75,6 @@ spark_sql = maven.artifact(
     exclusions = excluded_loggers,
     neverlink = True
 )
-spark_sql_kafka = maven.artifact(
-    group = "org.apache.spark",
-    artifact = "spark-sql-kafka-0-10_2.12",
-    version = spark_version,
-    exclusions = excluded_loggers,
-    neverlink = True
-)
-spark_sql_streaming = maven.artifact(
-    group = "org.apache.spark",
-    artifact = "spark-streaming_2.12",
-    version = spark_version,
-    exclusions = excluded_loggers,
-    neverlink = True
-)
-
 
 # Install dependencies
 
@@ -103,10 +83,8 @@ maven_install(
     artifacts = [
         borer_core,
         borer_derivation,
-        spark_core,
-        spark_sql,
-        spark_sql_kafka,
-        spark_sql_streaming,
+        scala_logging,
+        spark_sql
     ],
     repositories = ["https://repo1.maven.org/maven2"],
     fetch_sources = True

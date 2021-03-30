@@ -1,0 +1,16 @@
+# Build file for some-package package
+#
+# Targets:
+#   - some_spark
+#
+
+load("@io_bazel_rules_scala//scala:scala.bzl", "scala_macro_library")
+
+scala_macro_library(
+    name = "lib",
+    srcs = glob(["src/main/**/*.scala"]),
+    unused_dependency_checker_mode = "warn",
+    deps = [
+        "@some_maven//:org_apache_spark_spark_sql_2_12"
+    ]
+)
