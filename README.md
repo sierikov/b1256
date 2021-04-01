@@ -29,12 +29,6 @@ bazel build //some-borer:lib
 
 You should see the error caused by: `Worker process did not return a WorkResponse`.
 
-### Logger
-
-For example now we need to set up scala logging. And we decide to use `scala-logging` of version `3.9.2`.
-
-We [define][logger-define] and [install][logger-install] it in our `Workspace` file.
-
 ### Spark
 
 For example in this case we need to use `spark` of version `3.0.2`.
