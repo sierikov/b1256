@@ -12,6 +12,7 @@ scala_macro_library(
     unused_dependency_checker_mode = "warn",
     deps = [
         "@some_maven//:io_bullet_borer_core_2_12",
-        "@some_maven//:io_bullet_borer_derivation_2_12"
+        "@some_maven//:io_bullet_borer_derivation_2_12",
+        "@some_maven//:io_bullet_borer_deriver_2_12",
     ]
 )
