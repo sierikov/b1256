@@ -11,6 +11,8 @@ scala_macro_library(
     srcs = glob(["src/main/**/*.scala"]),
     unused_dependency_checker_mode = "warn",
     deps = [
-        "@some_maven//:org_apache_spark_spark_sql_2_12"
+        "@some_maven//:org_apache_spark_spark_core_2_12",
+        "@some_maven//:org_apache_spark_spark_sql_2_12",
+        "@some_maven//:org_apache_spark_spark_catalyst_2_12"
     ]
 )
