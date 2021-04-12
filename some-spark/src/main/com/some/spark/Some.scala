@@ -1,9 +1,11 @@
 package com.some.spark
 
 import org.apache.spark.sql.{Dataset, Row}
+import org.apache.spark.sql.SparkSession
 
 object Main {
   def main(): Unit = {
+    val spark = SparkSession.builder().getOrCreate()
     spark.readStream
       .format("kafka")
       .option("kafka.bootstrap.servers", "myKafkaBootStrapServer:9092")
@@ -15,8 +17,7 @@ object Main {
         "CAST(value AS STRING) AS value"
       )
       .writeStream
-      .foreachBatch { (data: Dataset[Row], batchId: Long) =>
-      }
+      .foreachBatch { (data: Dataset[Row], batchId: Long) => }
       .start()
       .awaitTermination()
   }
