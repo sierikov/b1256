@@ -45,6 +45,13 @@ To reproduce run:
 bazel build //some-spark:lib
 ```
 
+## Solution
+
+The solution of the **Borrer** and **Spark** problems is to define all direct dependecies or change `scala_toolchain` mode to *plus-one* ([docs][scala-toolchain]). The patched version of repository you can see in corresponding branches:
+
+- [Borer fix branch](https://github.com/sierikov/b1256/tree/fix/some-borer)
+- [Spark fix branch](https://github.com/sierikov/b1256/tree/fix/some-spark)
+
 ## How to build
 
 ### Build specific target
@@ -89,6 +96,8 @@ bazel build //...
 [spark-define]: https://github.com/sierikov/b1256/blob/main/WORKSPACE.bazel#L71-77
 [spark-install]: https://github.com/sierikov/b1256/blob/main/WORKSPACE.bazel#L87
 [spark-use]: https://github.com/sierikov/b1256/blob/main/some-spark/BUILD.bazel#L14
+
+[scala-toolchain]: https://github.com/bazelbuild/rules_scala/blob/master/docs/scala_toolchain.md
 
 [1256 bazel issue]: https://github.com/bazelbuild/rules_scala/issues/1256
 [StackOverflow question]: https://stackoverflow.com/questions/66640581/bazel-scala-failed-worker-process-did-not-return-a-workresponse
