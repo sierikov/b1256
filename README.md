@@ -52,6 +52,8 @@ The solution of the **Borrer** and **Spark** problems is to define all direct de
 - [Borer fix branch](https://github.com/sierikov/b1256/tree/fix/some-borer)
 - [Spark fix branch](https://github.com/sierikov/b1256/tree/fix/some-spark)
 
+More detailed anwser is published on the [Stack Overflow][StackOverflow anwser].
+
 ## How to build
 
 ### Build specific target
@@ -100,7 +102,8 @@ bazel build //...
 [scala-toolchain]: https://github.com/bazelbuild/rules_scala/blob/master/docs/scala_toolchain.md
 
 [1256 bazel issue]: https://github.com/bazelbuild/rules_scala/issues/1256
-[StackOverflow question]: https://stackoverflow.com/questions/66640581/bazel-scala-failed-worker-process-did-not-return-a-workresponse
+[StackOverflow question]: https://stackoverflow.com/q/66640581/9038646
+[StackOverflow anwser]: https://stackoverflow.com/a/67060474/9038646
 
 [`scala_library`]: https://github.com/bazelbuild/rules_scala/blob/master/docs/scala_library.md
 [`scala_macro_library`]: https://github.com/bazelbuild/rules_scala/blob/master/docs/scala_macro_library.md
